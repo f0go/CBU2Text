@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zze-Tg-cZs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Ph1-sb-bBt">
+            <objects>
+                <viewController id="Zze-Tg-cZs" customClass="ViewController" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pWe-fw-8A3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytz-mZ-WWj">
+                                <rect key="frame" x="114" y="437" width="186" height="22"/>
+                                <state key="normal" title=" Seleccionar imagen" image="photo" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectImage:" destination="Zze-Tg-cZs" eventType="touchUpInside" id="nGb-WA-Dep"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️ Siempre verificá que el numero de CBU que devuelve esta app coincida con el de la imagen que usaste." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koI-R7-n54">
+                                <rect key="frame" x="20" y="808.5" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gym-bn-6yx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="koI-R7-n54" firstAttribute="leading" secondItem="Gym-bn-6yx" secondAttribute="leading" constant="20" id="CTm-J2-mBE"/>
+                            <constraint firstItem="ytz-mZ-WWj" firstAttribute="centerY" secondItem="pWe-fw-8A3" secondAttribute="centerY" id="Kei-rJ-SkV"/>
+                            <constraint firstItem="Gym-bn-6yx" firstAttribute="trailing" secondItem="koI-R7-n54" secondAttribute="trailing" constant="20" id="MdN-Oc-LVx"/>
+                            <constraint firstItem="Gym-bn-6yx" firstAttribute="bottom" secondItem="koI-R7-n54" secondAttribute="bottom" constant="20" id="NZE-dJ-LNG"/>
+                            <constraint firstItem="ytz-mZ-WWj" firstAttribute="centerX" secondItem="pWe-fw-8A3" secondAttribute="centerX" id="djT-MU-0vl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WIj-HQ-SZn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
