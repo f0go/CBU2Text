@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zze-Tg-cZs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6RT-cH-4Iq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Scanner-->
         <scene sceneID="Ph1-sb-bBt">
             <objects>
                 <viewController id="Zze-Tg-cZs" customClass="ViewController" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️ Siempre verificá que el numero de CBU que devuelve esta app coincida con el de la imagen que usaste." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koI-R7-n54">
-                                <rect key="frame" x="20" y="808.5" width="374" height="33.5"/>
+                                <rect key="frame" x="20" y="759.5" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,13 +43,89 @@
                             <constraint firstItem="ytz-mZ-WWj" firstAttribute="centerX" secondItem="pWe-fw-8A3" secondAttribute="centerX" id="djT-MU-0vl"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Scanner" image="doc.text.viewfinder" catalog="system" id="HHT-bR-8n0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIj-HQ-SZn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Historial-->
+        <scene sceneID="zHI-aP-12v">
+            <objects>
+                <viewController restorationIdentifier="HistoryVC" storyboardIdentifier="HistoryVC" id="qtA-nK-kpd" customClass="HistoryVC" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YqQ-fB-z4H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a05-pe-cau">
+                                <rect key="frame" x="0.0" y="89" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qtA-nK-kpd" id="VPo-7v-5K6"/>
+                                    <outlet property="delegate" destination="qtA-nK-kpd" id="OIz-cA-ueV"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbQ-Ph-0iY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Historial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-GN-ois">
+                                        <rect key="frame" x="170" y="11" width="74" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Odp-GN-ois" firstAttribute="centerY" secondItem="jbQ-Ph-0iY" secondAttribute="centerY" id="a3Y-Wd-xSS"/>
+                                    <constraint firstItem="Odp-GN-ois" firstAttribute="centerX" secondItem="jbQ-Ph-0iY" secondAttribute="centerX" id="iZF-iZ-ctB"/>
+                                    <constraint firstAttribute="height" constant="45" id="yLP-Ue-QWF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pKe-Ac-7ZE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pKe-Ac-7ZE" firstAttribute="bottom" secondItem="a05-pe-cau" secondAttribute="bottom" id="8z8-St-KOn"/>
+                            <constraint firstItem="pKe-Ac-7ZE" firstAttribute="trailing" secondItem="a05-pe-cau" secondAttribute="trailing" id="Eqs-Vb-T4k"/>
+                            <constraint firstItem="jbQ-Ph-0iY" firstAttribute="top" secondItem="pKe-Ac-7ZE" secondAttribute="top" id="jJx-bq-y7e"/>
+                            <constraint firstItem="a05-pe-cau" firstAttribute="leading" secondItem="pKe-Ac-7ZE" secondAttribute="leading" id="jcF-kX-q5M"/>
+                            <constraint firstItem="jbQ-Ph-0iY" firstAttribute="leading" secondItem="pKe-Ac-7ZE" secondAttribute="leading" id="ofL-jj-ooY"/>
+                            <constraint firstItem="pKe-Ac-7ZE" firstAttribute="trailing" secondItem="jbQ-Ph-0iY" secondAttribute="trailing" id="y3x-v4-WiL"/>
+                            <constraint firstItem="a05-pe-cau" firstAttribute="top" secondItem="jbQ-Ph-0iY" secondAttribute="bottom" id="yCe-XQ-gLN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Historial" image="clock" catalog="system" id="gXx-OL-7qd"/>
+                    <connections>
+                        <outlet property="table" destination="a05-pe-cau" id="EHY-Ja-vcv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRl-Tu-as1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="918.75"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VKo-VT-pij">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6RT-cH-4Iq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T9I-ne-UHu">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Zze-Tg-cZs" kind="relationship" relationship="viewControllers" id="l63-r1-jbZ"/>
+                        <segue destination="qtA-nK-kpd" kind="relationship" relationship="viewControllers" id="KDm-5m-maX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="liQ-0p-1PL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
+        <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="doc.text.viewfinder" catalog="system" width="128" height="115"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
