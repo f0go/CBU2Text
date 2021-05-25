@@ -8,6 +8,7 @@
 import UIKit
 import MobileCoreServices
 import Vision
+import StoreKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -53,22 +54,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return observation.topCandidates(1).first?.string
         }
         
-        let regEx = "\\d{22}"
         for text in recognizedStrings {
-            let match = NSPredicate(format:"SELF MATCHES %@", regEx)
-            if match.evaluate(with: text) {
-                UIPasteboard.general.string = text
-                let alert = UIAlertController(title: "✅", message: "El CBU ya esta copiado", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-                return present(alert, animated: true, completion: nil)
+            if text.count == 22 {
+                let match = NSPredicate(format:"SELF MATCHES %@", "\\d{22}")
+                if match.evaluate(with: text) {
+                    UIPasteboard.general.string = text
+                    var showRateApp = false
+                    if var list = UserDefaults.standard.value(forKey: "cbuList") as? [String] {
+                        list = list.filter {$0 != text}
+                        list.insert(text, at: 0)
+                        UserDefaults.standard.setValue(list, forKey: "cbuList")
+                    }
+                    else {
+                        showRateApp = true
+                        UserDefaults.standard.setValue([text], forKey: "cbuList")
+                    }
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    let alert = UIAlertController(title: "✅", message: "El CBU ya esta copiado", preferredStyle: .alert)
+                    let accept = UIAlertAction(title: "Aceptar", style: .default) { _ in
+                        if showRateApp {
+                            SKStoreReviewController.requestReview()
+                        }
+                    }
+                    alert.addAction(accept)
+                    return present(alert, animated: true, completion: nil)
+                }
             }
         }
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         let alert = UIAlertController(title: "❌", message: "No se pudo encontrar el CBU", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         return present(alert, animated: true, completion: nil)
     }
     
     func showErrorMessage() {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         let alert = UIAlertController(title: "❌", message: "Se produjo un error al procesar la imagen", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)

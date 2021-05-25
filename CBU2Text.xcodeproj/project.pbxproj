@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5913DC48265D4F2100669C52 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913DC47265D4F2100669C52 /* HistoryVC.swift */; };
 		5919ECF9265C13AA00ED2B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5919ECF8265C13AA00ED2B87 /* AppDelegate.swift */; };
 		5919ECFB265C13AA00ED2B87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5919ECFA265C13AA00ED2B87 /* SceneDelegate.swift */; };
 		5919ECFD265C13AA00ED2B87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5919ECFC265C13AA00ED2B87 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5913DC47265D4F2100669C52 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		5919ECF5265C13AA00ED2B87 /* CBU2Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBU2Text.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5919ECF8265C13AA00ED2B87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5919ECFA265C13AA00ED2B87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				5919ECF8265C13AA00ED2B87 /* AppDelegate.swift */,
 				5919ECFA265C13AA00ED2B87 /* SceneDelegate.swift */,
 				5919ECFC265C13AA00ED2B87 /* ViewController.swift */,
+				5913DC47265D4F2100669C52 /* HistoryVC.swift */,
 				5919ECFE265C13AA00ED2B87 /* Main.storyboard */,
 				5919ED01265C13AB00ED2B87 /* Assets.xcassets */,
 				5919ED03265C13AB00ED2B87 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5919ECFD265C13AA00ED2B87 /* ViewController.swift in Sources */,
+				5913DC48265D4F2100669C52 /* HistoryVC.swift in Sources */,
 				5919ECF9265C13AA00ED2B87 /* AppDelegate.swift in Sources */,
 				5919ECFB265C13AA00ED2B87 /* SceneDelegate.swift in Sources */,
 			);
@@ -287,7 +291,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6MHAFZLQ4V;
 				INFOPLIST_FILE = CBU2Text/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6MHAFZLQ4V;
 				INFOPLIST_FILE = CBU2Text/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
