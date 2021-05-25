@@ -53,21 +53,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let recognizedStrings = observations.compactMap { observation in
             return observation.topCandidates(1).first?.string
         }
-        
+        let match = NSPredicate(format:"SELF MATCHES %@", "\\d{22}")
         for text in recognizedStrings {
-            if text.count == 22 {
-                let match = NSPredicate(format:"SELF MATCHES %@", "\\d{22}")
-                if match.evaluate(with: text) {
-                    UIPasteboard.general.string = text
+            let words = text.split(separator: " ")
+            for word in words {
+                if match.evaluate(with: word) {
+                    UIPasteboard.general.string = "\(word)"
                     var showRateApp = false
                     if var list = UserDefaults.standard.value(forKey: "cbuList") as? [String] {
-                        list = list.filter {$0 != text}
-                        list.insert(text, at: 0)
+                        list = list.filter {$0 != "\(word)"}
+                        list.insert("\(word)", at: 0)
                         UserDefaults.standard.setValue(list, forKey: "cbuList")
                     }
                     else {
                         showRateApp = true
-                        UserDefaults.standard.setValue([text], forKey: "cbuList")
+                        UserDefaults.standard.setValue(["\(word)"], forKey: "cbuList")
                     }
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     let alert = UIAlertController(title: "✅", message: "El CBU ya esta copiado", preferredStyle: .alert)
