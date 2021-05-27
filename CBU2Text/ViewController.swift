@@ -53,32 +53,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let recognizedStrings = observations.compactMap { observation in
             return observation.topCandidates(1).first?.string
         }
-        let match = NSPredicate(format:"SELF MATCHES %@", "\\d{22}")
         for text in recognizedStrings {
-            let words = text.split(separator: " ")
-            for word in words {
-                if match.evaluate(with: word) {
-                    UIPasteboard.general.string = "\(word)"
-                    var showRateApp = false
-                    if var list = UserDefaults.standard.value(forKey: "cbuList") as? [String] {
-                        list = list.filter {$0 != "\(word)"}
-                        list.insert("\(word)", at: 0)
-                        UserDefaults.standard.setValue(list, forKey: "cbuList")
-                    }
-                    else {
-                        showRateApp = true
-                        UserDefaults.standard.setValue(["\(word)"], forKey: "cbuList")
-                    }
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    let alert = UIAlertController(title: "✅", message: "El CBU ya esta copiado", preferredStyle: .alert)
-                    let accept = UIAlertAction(title: "Aceptar", style: .default) { _ in
-                        if showRateApp {
-                            SKStoreReviewController.requestReview()
-                        }
-                    }
-                    alert.addAction(accept)
-                    return present(alert, animated: true, completion: nil)
+            if (text.range(of: "\\d{22}", options: .regularExpression) != nil) {
+                let cbu = text.substring(with: text.range(of: "\\d{22}", options: .regularExpression)!)
+                UIPasteboard.general.string = cbu
+                var showRateApp = false
+                if var list = UserDefaults.standard.value(forKey: "cbuList") as? [String] {
+                    list = list.filter {$0 != cbu}
+                    list.insert(cbu, at: 0)
+                    UserDefaults.standard.setValue(list, forKey: "cbuList")
                 }
+                else {
+                    showRateApp = true
+                    UserDefaults.standard.setValue([cbu], forKey: "cbuList")
+                }
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                let alert = UIAlertController(title: "✅", message: "El CBU \(cbu) ya esta copiado", preferredStyle: .alert)
+                let accept = UIAlertAction(title: "Aceptar", style: .default) { _ in
+                    if showRateApp {
+                        SKStoreReviewController.requestReview()
+                    }
+                }
+                alert.addAction(accept)
+                return present(alert, animated: true, completion: nil)
             }
         }
         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
