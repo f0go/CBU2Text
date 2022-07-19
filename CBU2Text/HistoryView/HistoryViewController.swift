@@ -8,17 +8,19 @@
 import Foundation
 import UIKit
 
-class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var table: UITableView!
     
     private var cbuList: [String] = []
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let list = UserDefaults.standard.value(forKey: "cbuList") as? [String] {
             cbuList = list
             table.reloadData()

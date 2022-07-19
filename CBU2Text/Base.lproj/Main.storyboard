@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6RT-cH-4Iq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6RT-cH-4Iq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +13,7 @@
         <!--Scanner-->
         <scene sceneID="Ph1-sb-bBt">
             <objects>
-                <viewController id="Zze-Tg-cZs" customClass="ViewController" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zze-Tg-cZs" customClass="MainViewController" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pWe-fw-8A3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,12 +48,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIj-HQ-SZn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1048" y="-173"/>
         </scene>
         <!--Historial-->
         <scene sceneID="zHI-aP-12v">
             <objects>
-                <viewController restorationIdentifier="HistoryVC" storyboardIdentifier="HistoryVC" id="qtA-nK-kpd" customClass="HistoryVC" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="HistoryVC" storyboardIdentifier="HistoryVC" id="qtA-nK-kpd" customClass="HistoryViewController" customModule="CBU2Text" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YqQ-fB-z4H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRl-Tu-as1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="918.75"/>
+            <point key="canvasLocation" x="1048" y="513"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VKo-VT-pij">
